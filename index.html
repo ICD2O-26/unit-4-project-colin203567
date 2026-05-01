@@ -1,213 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Interactive IoT Smart Home Technology</title>
+    <title>Futuristic IoT Smart Home</title>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f2f6ff;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0d1117;
+            color: #e6e6e6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            transition: background 0.4s, color 0.4s;
+        }
+
+        /* Floating Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(20, 20, 30, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 1000;
+            border-bottom: 1px solid #4c8bff;
+        }
+
+        .navbar a {
+            color: #9fc5ff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #4c8bff;
+        }
+
+        /* Page Content */
+        .content {
+            padding: 100px 20px 40px;
         }
 
         h1 {
             text-align: center;
-            color: #2a4d9b;
-            font-size: 40px;
+            font-size: 45px;
+            color: #4c8bff;
+            text-shadow: 0 0 10px #4c8bff;
         }
 
         h2 {
-            color: #1d2f5d;
-            border-left: 6px solid #4c7bff;
+            color: #7ab8ff;
+            border-left: 5px solid #4c8bff;
             padding-left: 10px;
         }
 
         .section {
-            background: white;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px #c9d4ff;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(76, 139, 255, 0.3);
+            box-shadow: 0 0 15px rgba(76, 139, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .section:hover {
+            box-shadow: 0 0 25px rgba(76, 139, 255, 0.3);
         }
 
         img {
             width: 100%;
             max-width: 450px;
-            border-radius: 10px;
+            border-radius: 12px;
             display: block;
-            margin: 10px auto;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(76, 139, 255, 0.4);
         }
 
-        .fact {
-            background: #e8edff;
-            padding: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .fact:hover {
-            background: #d7e0ff;
-        }
-
-        #factText {
-            display: none;
-            margin-top: 10px;
-            padding: 10px;
-            background: #fff5d1;
-            border-radius: 8px;
-        }
-
-        .quiz {
-            background: #fff0f0;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        button {
-            background: #4c7bff;
+        /* Dark Mode Toggle Button */
+        .toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4c8bff;
             color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
+            padding: 12px 18px;
+            border-radius: 30px;
             cursor: pointer;
-            margin-top: 10px;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 0 15px #4c8bff;
+            transition: 0.3s;
         }
 
-        button:hover {
-            background: #2a4d9b;
-        }
-    </style>
-
-    <script>
-        function revealFact() {
-            let fact = document.getElementById("factText");
-            fact.style.display = fact.style.display === "none" ? "block" : "none";
+        .toggle-btn:hover {
+            background: #2a5bbf;
         }
 
-        function checkQuiz() {
-            let answer = document.querySelector('input[name="q1"]:checked');
-            let result = document.getElementById("quizResult");
-
-            if (!answer) {
-                result.innerHTML = "Pick an answer first!";
-                return;
-            }
-
-            if (answer.value === "correct") {
-                result.innerHTML = "Correct! IoT devices communicate using networks like Wi-Fi or Bluetooth.";
-            } else {
-                result.innerHTML = "Not quite. Try again.";
-            }
+        /* Light Mode */
+        .light-mode {
+            background: #f4f8ff;
+            color: #1a1a1a;
         }
-    </script>
-</head>
 
-<body>
+        .light-mode .section {
+            background: white;
+            border-color: #4c8bff;
+        }
 
-    <h1>IoT Smart Home Technology</h1>
+        .light-mode h1 {
+            color: #2a5bbf;
 
-    <div class="section">
-        <h2>What Is IoT Smart Home Technology?</h2>
-        <p>
-            IoT (Internet of Things) smart home technology connects everyday devices—lights, locks, 
-            thermostats, speakers—to the internet so they can communicate and automate tasks.
-        </p>
-
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Smart_home_device_collage.jpg" 
-             alt="Smart Home Devices">
-    </div>
-
-    <div class="section">
-        <h2>What Problem Does It Solve?</h2>
-        <p>
-            Smart home IoT devices make life easier by improving:
-        </p>
-        <ul>
-            <li><b>Convenience</b> – control your home from your phone</li>
-            <li><b>Security</b> – smart locks, cameras, alerts</li>
-            <li><b>Energy efficiency</b> – smart thermostats and lights</li>
-            <li><b>Accessibility</b> – voice control for people with disabilities</li>
-        </ul>
-
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Smart_home_thermostat.jpg"
-             alt="Smart Thermostat">
-    </div>
-
-    <div class="section">
-        <h2>How Does It Work?</h2>
-        <p>
-            IoT devices use sensors and wireless networks (Wi-Fi, Bluetooth, Zigbee) to collect data 
-            and send it to apps or cloud services. This allows automation, remote control, and 
-            real-time monitoring.
-        </p>
-
-        <div class="fact" onclick="revealFact()">
-            🔍 Click to reveal a cool fact about IoT!
-        </div>
-
-        <div id="factText">
-            Smart fridges can track expiration dates and even suggest recipes based on what’s inside.
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Where Is It Used Today?</h2>
-        <p>
-            IoT smart home tech appears in:
-        </p>
-        <ul>
-            <li>Home security systems</li>
-            <li>Energy management</li>
-            <li>Healthcare monitoring</li>
-            <li>Entertainment systems</li>
-        </ul>
-
-        <p>
-            Careers that use this technology include:
-            home automation technicians, software developers, cybersecurity analysts, and electrical engineers.
-        </p>
-
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Smart_home_security_camera.jpg"
-             alt="Smart Security Camera">
-    </div>
-
-    <div class="section">
-        <h2>Social & Global Impacts</h2>
-        <p><b>Social:</b> More convenience and accessibility.</p>
-        <p><b>Cultural:</b> Changes how people interact with their homes.</p>
-        <p><b>Economic:</b> Creates new tech jobs but increases device costs.</p>
-        <p><b>Environmental:</b> Reduces energy waste.</p>
-        <p><b>Ethical:</b> Raises privacy concerns.</p>
-        <p><b>Global:</b> Expands automation worldwide but increases e-waste.</p>
-    </div>
-
-    <div class="section">
-        <h2>Learn More</h2>
-        <p>
-            Visit 
-            <a href="https://www.ibm.com/topics/internet-of-things" target="_blank">
-                IBM's Internet of Things Overview
-            </a>
-            to explore more about IoT.
-        </p>
-    </div>
-
-    <div class="section quiz">
-        <h2>Quick IoT Quiz</h2>
-        <p>How do IoT devices communicate?</p>
-
-        <label><input type="radio" name="q1" value="wrong"> Through magic</label><br>
-        <label><input type="radio" name="q1" value="correct"> Through wireless networks</label><br>
-        <label><input type="radio" name="q1" value="wrong"> By sending letters</label><br>
-
-        <button onclick="checkQuiz()">Submit Answer</button>
-        <p id="quizResult"></p>
-    </div>
-
-</body>
-</html>
 
 
