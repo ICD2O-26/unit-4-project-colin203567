@@ -1,78 +1,213 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IoT Smart Home Technology</title>
+    <title>Interactive IoT Smart Home Technology</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6ff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2a4d9b;
+            font-size: 40px;
+        }
+
+        h2 {
+            color: #1d2f5d;
+            border-left: 6px solid #4c7bff;
+            padding-left: 10px;
+        }
+
+        .section {
+            background: white;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #c9d4ff;
+        }
+
+        img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 10px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .fact {
+            background: #e8edff;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .fact:hover {
+            background: #d7e0ff;
+        }
+
+        #factText {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff5d1;
+            border-radius: 8px;
+        }
+
+        .quiz {
+            background: #fff0f0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            background: #4c7bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #2a4d9b;
+        }
+    </style>
+
+    <script>
+        function revealFact() {
+            let fact = document.getElementById("factText");
+            fact.style.display = fact.style.display === "none" ? "block" : "none";
+        }
+
+        function checkQuiz() {
+            let answer = document.querySelector('input[name="q1"]:checked');
+            let result = document.getElementById("quizResult");
+
+            if (!answer) {
+                result.innerHTML = "Pick an answer first!";
+                return;
+            }
+
+            if (answer.value === "correct") {
+                result.innerHTML = "Correct! IoT devices communicate using networks like Wi-Fi or Bluetooth.";
+            } else {
+                result.innerHTML = "Not quite. Try again.";
+            }
+        }
+    </script>
 </head>
 
 <body>
 
-    <h1>IoT Smart Home Features and Devices</h1>
+    <h1>IoT Smart Home Technology</h1>
 
-    <h2>What Is IoT Smart Home Technology?</h2>
-    <p>
-        IoT (Internet of Things) smart home technology refers to everyday household devices 
-        that connect to the internet and communicate with each other. These devices can be 
-        controlled remotely using a smartphone, voice assistant, or automation system.
-    </p>
+    <div class="section">
+        <h2>What Is IoT Smart Home Technology?</h2>
+        <p>
+            IoT (Internet of Things) smart home technology connects everyday devices—lights, locks, 
+            thermostats, speakers—to the internet so they can communicate and automate tasks.
+        </p>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Smart_home_device_collage.jpg" 
-         width="400" alt="Smart Home Devices">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Smart_home_device_collage.jpg" 
+             alt="Smart Home Devices">
+    </div>
 
-    <h2>What Problem Does This Technology Solve?</h2>
-    <p>
-        Smart home IoT devices solve problems related to convenience, safety, energy efficiency, 
-        and accessibility. For example, smart thermostats reduce energy waste, smart locks improve 
-        home security, and smart lights help automate daily routines.
-    </p>
+    <div class="section">
+        <h2>What Problem Does It Solve?</h2>
+        <p>
+            Smart home IoT devices make life easier by improving:
+        </p>
+        <ul>
+            <li><b>Convenience</b> – control your home from your phone</li>
+            <li><b>Security</b> – smart locks, cameras, alerts</li>
+            <li><b>Energy efficiency</b> – smart thermostats and lights</li>
+            <li><b>Accessibility</b> – voice control for people with disabilities</li>
+        </ul>
 
-    <h2>How Does It Work?</h2>
-    <p>
-        IoT devices use sensors, Wi-Fi, Bluetooth, or Zigbee networks to collect data and send it 
-        to a central hub or cloud service. Users can then control the devices through apps or 
-        voice assistants like Alexa or Google Home.  
-        <br>
-        For example, a smart thermostat senses temperature, sends data to the cloud, and adjusts 
-        heating automatically based on user preferences.
-    </p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Smart_home_thermostat.jpg"
+             alt="Smart Thermostat">
+    </div>
 
-    <h2>Where Is It Used Today?</h2>
-    <p>
-        IoT smart home technology is used in many industries, including:
-        <br><br>
-        • <b>Home security</b> – smart cameras, motion sensors, smart locks  
-        • <b>Energy management</b> – smart thermostats, smart plugs  
-        • <b>Healthcare</b> – fall detectors, remote monitoring devices  
-        • <b>Entertainment</b> – smart TVs, smart speakers  
-        <br><br>
-        Careers that use this technology include home automation technicians, software developers, 
-        cybersecurity specialists, and electrical engineers.
-    </p>
+    <div class="section">
+        <h2>How Does It Work?</h2>
+        <p>
+            IoT devices use sensors and wireless networks (Wi-Fi, Bluetooth, Zigbee) to collect data 
+            and send it to apps or cloud services. This allows automation, remote control, and 
+            real-time monitoring.
+        </p>
 
-    <h2>Social and Global Impacts</h2>
-    <p>
-        IoT smart home technology has many impacts:
-        <br><br>
-        <b>Social:</b> Increases convenience and accessibility, especially for people with disabilities.  
-        <br>
-        <b>Cultural:</b> Changes how people interact with their homes and daily routines.  
-        <br>
-        <b>Economic:</b> Creates new jobs in tech and automation but may increase costs for consumers.  
-        <br>
-        <b>Environmental:</b> Reduces energy consumption through automation and monitoring.  
-        <br>
-        <b>Ethical:</b> Raises privacy concerns because devices collect personal data.  
-        <br>
-        <b>Global:</b> Expands worldwide access to automation but increases electronic waste.  
-    </p>
+        <div class="fact" onclick="revealFact()">
+            🔍 Click to reveal a cool fact about IoT!
+        </div>
 
-    <h2>Learn More</h2>
-    <p>
-        To explore more about IoT smart home devices, visit 
-        <a href="https://www.ibm.com/topics/internet-of-things" target="_blank">
-            IBM's Internet of Things Overview
-        </a>.
-    </p>
+        <div id="factText">
+            Smart fridges can track expiration dates and even suggest recipes based on what’s inside.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Where Is It Used Today?</h2>
+        <p>
+            IoT smart home tech appears in:
+        </p>
+        <ul>
+            <li>Home security systems</li>
+            <li>Energy management</li>
+            <li>Healthcare monitoring</li>
+            <li>Entertainment systems</li>
+        </ul>
+
+        <p>
+            Careers that use this technology include:
+            home automation technicians, software developers, cybersecurity analysts, and electrical engineers.
+        </p>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Smart_home_security_camera.jpg"
+             alt="Smart Security Camera">
+    </div>
+
+    <div class="section">
+        <h2>Social & Global Impacts</h2>
+        <p><b>Social:</b> More convenience and accessibility.</p>
+        <p><b>Cultural:</b> Changes how people interact with their homes.</p>
+        <p><b>Economic:</b> Creates new tech jobs but increases device costs.</p>
+        <p><b>Environmental:</b> Reduces energy waste.</p>
+        <p><b>Ethical:</b> Raises privacy concerns.</p>
+        <p><b>Global:</b> Expands automation worldwide but increases e-waste.</p>
+    </div>
+
+    <div class="section">
+        <h2>Learn More</h2>
+        <p>
+            Visit 
+            <a href="https://www.ibm.com/topics/internet-of-things" target="_blank">
+                IBM's Internet of Things Overview
+            </a>
+            to explore more about IoT.
+        </p>
+    </div>
+
+    <div class="section quiz">
+        <h2>Quick IoT Quiz</h2>
+        <p>How do IoT devices communicate?</p>
+
+        <label><input type="radio" name="q1" value="wrong"> Through magic</label><br>
+        <label><input type="radio" name="q1" value="correct"> Through wireless networks</label><br>
+        <label><input type="radio" name="q1" value="wrong"> By sending letters</label><br>
+
+        <button onclick="checkQuiz()">Submit Answer</button>
+        <p id="quizResult"></p>
+    </div>
 
 </body>
 </html>
+
 
