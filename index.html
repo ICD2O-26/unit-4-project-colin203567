@@ -29,14 +29,14 @@
         }
 
         .navbar a {
-            color: #9fc5ff;
+            color: #b7d7ff; /* LIGHTER BLUE */
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
         }
 
         .navbar a:hover {
-            color: #4c8bff;
+            color: #6fb3ff;
         }
 
         /* Page Content */
@@ -47,14 +47,22 @@
         h1 {
             text-align: center;
             font-size: 45px;
-            color: #4c8bff;
-            text-shadow: 0 0 10px #4c8bff;
+            color: #6fb3ff;
+            text-shadow: 0 0 10px #6fb3ff;
         }
 
         h2 {
-            color: #7ab8ff;
-            border-left: 5px solid #4c8bff;
+            color: #9acbff;
+            border-left: 5px solid #6fb3ff;
             padding-left: 10px;
+        }
+
+        a {
+            color: #9acbff; /* LIGHTER BLUE LINKS */
+        }
+
+        a:hover {
+            color: #6fb3ff;
         }
 
         .section {
@@ -85,19 +93,19 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #4c8bff;
+            background: #6fb3ff;
             color: white;
             padding: 12px 18px;
             border-radius: 30px;
             cursor: pointer;
             border: none;
             font-size: 16px;
-            box-shadow: 0 0 15px #4c8bff;
+            box-shadow: 0 0 15px #6fb3ff;
             transition: 0.3s;
         }
 
         .toggle-btn:hover {
-            background: #2a5bbf;
+            background: #3f7fcc;
         }
 
         /* Light Mode */
@@ -108,11 +116,11 @@
 
         .light-mode .section {
             background: white;
-            border-color: #4c8bff;
+            border-color: #6fb3ff;
         }
 
         .light-mode h1 {
-            color: #2a5bbf;
+            color: #3f7fcc;
             text-shadow: none;
         }
 
@@ -121,11 +129,11 @@
         }
 
         .light-mode .navbar a {
-            color: #2a5bbf;
+            color: #3f7fcc;
         }
 
         .light-mode .toggle-btn {
-            background: #2a5bbf;
+            background: #3f7fcc;
         }
 
         /* Interactive Fact Box */
@@ -158,18 +166,31 @@
             margin-top: 20px;
         }
 
-        button {
-            background: #4c8bff;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 10px;
+        /* SMART HOME DASHBOARD SIMULATOR */
+        .dashboard {
+            background: rgba(100, 150, 255, 0.1);
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
         }
 
-        button:hover {
-            background: #2a5bbf;
+        .dash-item {
+            margin-bottom: 20px;
+        }
+
+        .dash-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .status {
+            margin-top: 5px;
+            color: #9acbff;
+        }
+
+        .slider {
+            width: 100%;
         }
     </style>
 
@@ -192,11 +213,24 @@
                 return;
             }
 
-            if (answer.value === "correct") {
-                result.innerHTML = "Correct! IoT devices communicate using wireless networks.";
-            } else {
-                result.innerHTML = "Incorrect. Try again.";
-            }
+            result.innerHTML = answer.value === "correct"
+                ? "Correct! IoT devices communicate using wireless networks."
+                : "Incorrect. Try again.";
+        }
+
+        /* SMART HOME DASHBOARD LOGIC */
+        function toggleLight() {
+            let status = document.getElementById("lightStatus");
+            status.innerHTML = status.innerHTML === "OFF" ? "ON" : "OFF";
+        }
+
+        function adjustTemp(value) {
+            document.getElementById("tempStatus").innerHTML = value + "°C";
+        }
+
+        function toggleLock() {
+            let status = document.getElementById("lockStatus");
+            status.innerHTML = status.innerHTML === "Locked" ? "Unlocked" : "Locked";
         }
     </script>
 </head>
@@ -208,6 +242,7 @@
         <a href="#what">What Is IoT?</a>
         <a href="#problem">Problems Solved</a>
         <a href="#how">How It Works</a>
+        <a href="#dashboard">Dashboard</a>
         <a href="#impacts">Impacts</a>
         <a href="#quiz">Quiz</a>
     </div>
@@ -240,37 +275,17 @@
 
             <h3>Examples of Real IoT Smart Home Devices</h3>
             <ul>
-                <li>
-                    <a href="https://store.google.com/product/nest_learning_thermostat" target="_blank">
-                        Google Nest Learning Thermostat
-                    </a> – adjusts temperature automatically to save energy.
-                </li>
-                <li>
-                    <a href="https://www.amazon.ca/dp/B09NQNGT7H" target="_blank">
-                        Amazon Echo (Alexa)
-                    </a> – voice assistant that controls smart devices.
-                </li>
-                <li>
-                    <a href="https://ring.com/products/video-doorbell-4" target="_blank">
-                        Ring Video Doorbell
-                    </a> – see and talk to visitors from your phone.
-                </li>
-                <li>
-                    <a href="https://www.philips-hue.com/en-ca" target="_blank">
-                        Philips Hue Smart Lights
-                    </a> – customizable smart lighting with automation.
-                </li>
-                <li>
-                    <a href="https://august.com/products/august-wifi-smart-lock" target="_blank">
-                        August Wi‑Fi Smart Lock
-                    </a> – lock/unlock your door remotely.
-                </li>
+                <li><a href="https://store.google.com/product/nest_learning_thermostat" target="_blank">Google Nest Learning Thermostat</a></li>
+                <li><a href="https://www.amazon.ca/dp/B09NQNGT7H" target="_blank">Amazon Echo (Alexa)</a></li>
+                <li><a href="https://ring.com/products/video-doorbell-4" target="_blank">Ring Video Doorbell</a></li>
+                <li><a href="https://www.philips-hue.com/en-ca" target="_blank">Philips Hue Smart Lights</a></li>
+                <li><a href="https://august.com/products/august-wifi-smart-lock" target="_blank">August Wi‑Fi Smart Lock</a></li>
             </ul>
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Smart_home_thermostat.jpg">
         </div>
 
-        <!-- HOW IT WORKS + DEVICE LINKS -->
+        <!-- HOW IT WORKS -->
         <div class="section" id="how">
             <h2>How Does It Work?</h2>
             <p>
@@ -281,21 +296,9 @@
 
             <h3>Devices That Use These Technologies</h3>
             <ul>
-                <li>
-                    <a href="https://www.samsung.com/us/smartthings/" target="_blank">
-                        Samsung SmartThings Hub
-                    </a> – connects all your smart devices into one system.
-                </li>
-                <li>
-                    <a href="https://www.ecobee.com/en-ca/smart-thermostats/" target="_blank">
-                        Ecobee Smart Thermostat
-                    </a> – uses sensors + AI to optimize heating/cooling.
-                </li>
-                <li>
-                    <a href="https://www.tp-link.com/ca/home-networking/smart-plug/hs103/" target="_blank">
-                        Kasa Smart Plug
-                    </a> – turns any device into a smart device.
-                </li>
+                <li><a href="https://www.samsung.com/us/smartthings/" target="_blank">Samsung SmartThings Hub</a></li>
+                <li><a href="https://www.ecobee.com/en-ca/smart-thermostats/" target="_blank">Ecobee Smart Thermostat</a></li>
+                <li><a href="https://www.tp-link.com/ca/home-networking/smart-plug/hs103/" target="_blank">Kasa Smart Plug</a></li>
             </ul>
 
             <div class="fact" onclick="revealFact()">
@@ -304,6 +307,34 @@
 
             <div id="factText">
                 Some smart homes use AI to predict your routines—lights, temperature, and music adjust automatically.
+            </div>
+        </div>
+
+        <!-- SMART HOME DASHBOARD SIMULATOR -->
+        <div class="section" id="dashboard">
+            <h2>Smart Home Dashboard Simulator</h2>
+            <p>Try controlling your virtual smart home:</p>
+
+            <div class="dashboard">
+
+                <div class="dash-item">
+                    <div class="dash-label">Lights</div>
+                    <button onclick="toggleLight()">Toggle Lights</button>
+                    <div class="status">Status: <span id="lightStatus">OFF</span></div>
+                </div>
+
+                <div class="dash-item">
+                    <div class="dash-label">Thermostat</div>
+                    <input type="range" min="15" max="30" value="22" class="slider" oninput="adjustTemp(this.value)">
+                    <div class="status">Temperature: <span id="tempStatus">22°C</span></div>
+                </div>
+
+                <div class="dash-item">
+                    <div class="dash-label">Door Lock</div>
+                    <button onclick="toggleLock()">Toggle Lock</button>
+                    <div class="status">Status: <span id="lockStatus">Locked</span></div>
+                </div>
+
             </div>
         </div>
 
@@ -346,4 +377,3 @@
 
 </body>
 </html>
-
