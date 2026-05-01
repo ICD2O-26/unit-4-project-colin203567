@@ -113,6 +113,181 @@
 
         .light-mode h1 {
             color: #2a5bbf;
+            text-shadow: none;
+        }
 
+        .light-mode .navbar {
+            background: rgba(255, 255, 255, 0.9);
+        }
 
+        .light-mode .navbar a {
+            color: #2a5bbf;
+        }
+
+        .light-mode .toggle-btn {
+            background: #2a5bbf;
+        }
+
+        /* Interactive Fact Box */
+        .fact {
+            background: rgba(76, 139, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .fact:hover {
+            background: rgba(76, 139, 255, 0.35);
+        }
+
+        #factText {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255, 230, 150, 0.2);
+            border-radius: 10px;
+        }
+
+        /* Quiz Box */
+        .quiz {
+            background: rgba(255, 100, 100, 0.15);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        button {
+            background: #4c8bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #2a5bbf;
+        }
+    </style>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("light-mode");
+        }
+
+        function revealFact() {
+            let fact = document.getElementById("factText");
+            fact.style.display = fact.style.display === "none" ? "block" : "none";
+        }
+
+        function checkQuiz() {
+            let answer = document.querySelector('input[name="q1"]:checked');
+            let result = document.getElementById("quizResult");
+
+            if (!answer) {
+                result.innerHTML = "Choose an answer first.";
+                return;
+            }
+
+            if (answer.value === "correct") {
+                result.innerHTML = "Correct! IoT devices communicate using wireless networks.";
+            } else {
+                result.innerHTML = "Incorrect. Try again.";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Floating Navigation Bar -->
+    <div class="navbar">
+        <a href="#what">What Is IoT?</a>
+        <a href="#problem">Problems Solved</a>
+        <a href="#how">How It Works</a>
+        <a href="#impacts">Impacts</a>
+        <a href="#quiz">Quiz</a>
+    </div>
+
+    <div class="content">
+
+        <h1>Futuristic IoT Smart Home</h1>
+
+        <div class="section" id="what">
+            <h2>What Is IoT Smart Home Technology?</h2>
+            <p>
+                IoT smart home technology connects everyday devices—lights, locks, thermostats, speakers—
+                to the internet so they can automate tasks and communicate with each other.
+            </p>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Smart_home_device_collage.jpg">
+        </div>
+
+        <div class="section" id="problem">
+            <h2>What Problem Does It Solve?</h2>
+            <p>IoT improves:</p>
+            <ul>
+                <li>Convenience</li>
+                <li>Security</li>
+                <li>Energy efficiency</li>
+                <li>Accessibility</li>
+            </ul>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Smart_home_thermostat.jpg">
+        </div>
+
+        <div class="section" id="how">
+            <h2>How Does It Work?</h2>
+            <p>
+                IoT devices use sensors and wireless networks to collect data and send it to apps or cloud systems.
+            </p>
+
+            <div class="fact" onclick="revealFact()">
+                🔍 Tap to reveal a futuristic IoT fact
+            </div>
+
+            <div id="factText">
+                Some smart homes use AI to predict your routines—lights, temperature, and music adjust automatically.
+            </div>
+        </div>
+
+        <div class="section" id="impacts">
+            <h2>Social & Global Impacts</h2>
+            <p><b>Social:</b> More convenience and accessibility.</p>
+            <p><b>Cultural:</b> Homes feel more futuristic and automated.</p>
+            <p><b>Economic:</b> Creates new tech jobs.</p>
+            <p><b>Environmental:</b> Reduces energy waste.</p>
+            <p><b>Ethical:</b> Raises privacy concerns.</p>
+            <p><b>Global:</b> Expands automation worldwide.</p>
+        </div>
+
+        <div class="section" id="quiz">
+            <h2>Quick IoT Quiz</h2>
+            <p>How do IoT devices communicate?</p>
+
+            <label><input type="radio" name="q1" value="wrong"> Telepathy</label><br>
+            <label><input type="radio" name="q1" value="correct"> Wireless networks</label><br>
+            <label><input type="radio" name="q1" value="wrong"> Morse code</label><br>
+
+            <button onclick="checkQuiz()">Submit</button>
+            <p id="quizResult"></p>
+        </div>
+
+        <div class="section">
+            <h2>Learn More</h2>
+            <p>
+                Visit <a href="https://www.ibm.com/topics/internet-of-things" target="_blank">IBM's IoT Overview</a>.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+</body>
+</html>
 
