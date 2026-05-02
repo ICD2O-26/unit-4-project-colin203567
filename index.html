@@ -13,7 +13,55 @@
             transition: background 0.4s, color 0.4s;
         }
 
-        /* Floating Navigation Bar */
+        /* LIGHT MODE FIX */
+        body.light-mode {
+            background: #f4f8ff;
+            color: #111;
+        }
+
+        body.light-mode .section {
+            background: white;
+            border-color: #6fb3ff;
+            color: #111;
+        }
+
+        body.light-mode h1 {
+            color: #3f7fcc;
+            text-shadow: none;
+        }
+
+        body.light-mode h2 {
+            color: #3f7fcc;
+            border-left-color: #3f7fcc;
+        }
+
+        /* LIGHTER BLUE LINKS */
+        a {
+            color: #b7e3ff; /* neon ice blue */
+        }
+
+        a:hover {
+            color: #d0f0ff; /* brighter glow */
+        }
+
+        body.light-mode a {
+            color: #4aa8ff; /* sky blue */
+        }
+
+        body.light-mode a:hover {
+            color: #74c4ff;
+        }
+
+        /* NAVBAR */
+        body.light-mode .navbar {
+            background: rgba(255,255,255,0.95);
+            border-bottom-color: #3f7fcc;
+        }
+
+        body.light-mode .navbar a {
+            color: #3f7fcc;
+        }
+
         .navbar {
             position: fixed;
             top: 0;
@@ -29,14 +77,14 @@
         }
 
         .navbar a {
-            color: #b7d7ff;
+            color: #b7e3ff;
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
         }
 
         .navbar a:hover {
-            color: #6fb3ff;
+            color: #d0f0ff;
         }
 
         .content {
@@ -56,26 +104,13 @@
             padding-left: 10px;
         }
 
-        a {
-            color: #9acbff;
-        }
-
-        a:hover {
-            color: #6fb3ff;
-        }
-
         .section {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             padding: 20px;
             margin: 25px 0;
             border-radius: 12px;
-            border: 1px solid rgba(76, 139, 255, 0.3);
-            box-shadow: 0 0 15px rgba(76, 139, 255, 0.1);
+            border: 1px solid rgba(76,139,255,0.3);
             transition: 0.3s;
-        }
-
-        .section:hover {
-            box-shadow: 0 0 25px rgba(76, 139, 255, 0.3);
         }
 
         img {
@@ -84,10 +119,9 @@
             border-radius: 12px;
             display: block;
             margin: 15px auto;
-            box-shadow: 0 0 15px rgba(76, 139, 255, 0.4);
         }
 
-        /* Dark Mode Toggle */
+        /* Toggle Button */
         .toggle-btn {
             position: fixed;
             bottom: 20px;
@@ -99,112 +133,39 @@
             cursor: pointer;
             border: none;
             font-size: 16px;
-            box-shadow: 0 0 15px #6fb3ff;
-            transition: 0.3s;
-        }
-
-        .toggle-btn:hover {
-            background: #3f7fcc;
-        }
-
-        /* LIGHT MODE STYLES (for .light-mode on body) */
-        .light-mode {
-            background: #f4f8ff;
-            color: #111111;
-        }
-
-        .light-mode .section {
-            background: #ffffff;
-            border-color: #6fb3ff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-        }
-
-        .light-mode h1 {
-            color: #3f7fcc;
-            text-shadow: none;
-        }
-
-        .light-mode h2 {
-            color: #3f7fcc;
-            border-left-color: #3f7fcc;
-        }
-
-        .light-mode a {
-            color: #2f6fd0;
-        }
-
-        .light-mode a:hover {
-            color: #174a9c;
-        }
-
-        .light-mode .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom-color: #3f7fcc;
-        }
-
-        .light-mode .navbar a {
-            color: #3f7fcc;
-        }
-
-        .light-mode .toggle-btn {
-            background: #3f7fcc;
-            box-shadow: 0 0 10px #3f7fcc;
         }
 
         /* Dashboard */
         .dashboard {
-            background: rgba(0, 120, 255, 0.25);
-            border: 1px solid rgba(100, 150, 255, 0.3);
+            background: rgba(0,120,255,0.25);
+            border: 1px solid rgba(100,150,255,0.3);
             padding: 20px;
             border-radius: 12px;
-            margin-top: 20px;
             transition: background 0.4s ease;
         }
 
-        .dash-item {
-            margin-bottom: 20px;
+        body.light-mode .dashboard {
+            background: rgba(200,220,255,0.6);
+            border-color: #3f7fcc;
         }
 
-        .dash-label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .status {
-            margin-top: 5px;
-            color: #9acbff;
-        }
-
-        .slider {
-            width: 100%;
-        }
+        .dash-item { margin-bottom: 20px; }
+        .dash-label { font-weight: bold; }
+        .status { margin-top: 5px; color: #9acbff; }
 
         .fact {
-            background: rgba(76, 139, 255, 0.2);
+            background: rgba(76,139,255,0.2);
             padding: 10px;
             border-radius: 10px;
             cursor: pointer;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-
-        .fact:hover {
-            background: rgba(76, 139, 255, 0.35);
         }
 
         #factText {
             display: none;
             margin-top: 10px;
             padding: 10px;
-            background: rgba(255, 230, 150, 0.2);
+            background: rgba(255,230,150,0.2);
             border-radius: 10px;
-        }
-
-        .quiz {
-            background: rgba(255, 100, 100, 0.15);
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 20px;
         }
     </style>
 
@@ -214,10 +175,7 @@
         const toggleSound = new Audio("https://actions.google.com/sounds/v1/cartoon/pop.ogg");
         const lockSound = new Audio("https://cdn.freesound.org/previews/341/341695_6261194-lq.mp3");
 
-        function play(sound) {
-            sound.currentTime = 0;
-            sound.play();
-        }
+        function play(s) { s.currentTime = 0; s.play(); }
 
         function toggleDarkMode() {
             play(clickSound);
@@ -234,26 +192,18 @@
             play(clickSound);
             let answer = document.querySelector('input[name="q1"]:checked');
             let result = document.getElementById("quizResult");
-
-            if (!answer) {
-                result.innerHTML = "Choose an answer first.";
-                return;
-            }
-
-            result.innerHTML = answer.value === "correct"
-                ? "Correct! IoT devices communicate using wireless networks."
-                : "Incorrect. Try again.";
+            if (!answer) { result.innerHTML = "Choose an answer first."; return; }
+            result.innerHTML = answer.value === "correct" ? "Correct!" : "Incorrect.";
         }
 
         function toggleLight() {
             play(toggleSound);
-
             let status = document.getElementById("lightStatus");
             let dash = document.querySelector(".dashboard");
 
             if (status.innerHTML === "OFF") {
                 status.innerHTML = "ON";
-                dash.style.background = "rgba(100, 200, 255, 0.35)";
+                dash.style.background = "rgba(100,200,255,0.35)";
             } else {
                 status.innerHTML = "OFF";
                 dash.style.background = "black";
@@ -262,31 +212,29 @@
 
         function adjustTemp(value) {
             play(clickSound);
-
             document.getElementById("tempStatus").innerHTML = value + "°C";
 
             let dash = document.querySelector(".dashboard");
             let percent = (value - 15) / 15;
 
-            let r = Math.floor(0 + percent * 255);
+            let r = Math.floor(percent * 255);
             let g = Math.floor(120 - percent * 120);
             let b = Math.floor(255 - percent * 255);
 
-            dash.style.background = `rgba(${r}, ${g}, ${b}, 0.35)`;
+            dash.style.background = `rgba(${r},${g},${b},0.35)`;
         }
 
         function toggleLock() {
             play(lockSound);
-
             let status = document.getElementById("lockStatus");
             let img = document.getElementById("lockImage");
 
             if (status.innerHTML === "Locked") {
                 status.innerHTML = "Unlocked";
-                img.src = "https://raw.githubusercontent.com/google/material-design-icons/master/png/action/lock_open/materialicons/512dp/lock_open.png";
+                img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Unlock-green.svg/240px-Unlock-green.svg.png";
             } else {
                 status.innerHTML = "Locked";
-                img.src = "https://raw.githubusercontent.com/google/material-design-icons/master/png/action/lock/materialicons/512dp/lock.png";
+                img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Lock-green.svg/240px-Lock-green.svg.png";
             }
         }
     </script>
@@ -307,15 +255,14 @@
 
         <h1>Futuristic IoT Smart Home</h1>
 
+        <!-- WHAT IS IOT -->
         <div class="section" id="what">
             <h2>What Is IoT Smart Home Technology?</h2>
-            <p>
-                IoT smart home technology connects everyday devices—lights, locks, thermostats, speakers—
-                to the internet so they can automate tasks and communicate with each other.
-            </p>
-            <img src="https://cdn.pixabay.com/photo/2019/01/14/11/20/smart-home-3930536_1280.jpg">
+            <p>IoT connects everyday devices—lights, locks, thermostats—to the internet.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Smart_home_device_collage.jpg/640px-Smart_home_device_collage.jpg">
         </div>
 
+        <!-- PROBLEMS SOLVED -->
         <div class="section" id="problem">
             <h2>What Problem Does It Solve?</h2>
             <p>IoT improves:</p>
@@ -325,25 +272,38 @@
                 <li><b>Energy efficiency</b> – smart thermostats and lights</li>
                 <li><b>Accessibility</b> – voice control for people with disabilities</li>
             </ul>
-            <img src="https://cdn.pixabay.com/photo/2018/03/02/17/46/smart-home-3194935_1280.jpg">
+
+            <h3>Examples of Real IoT Smart Home Devices</h3>
+            <ul>
+                <li><a href="https://store.google.com/product/nest_learning_thermostat" target="_blank">Google Nest Learning Thermostat</a></li>
+                <li><a href="https://www.amazon.ca/dp/B09NQNGT7H" target="_blank">Amazon Echo (Alexa)</a></li>
+                <li><a href="https://ring.com/products/video-doorbell-4" target="_blank">Ring Video Doorbell</a></li>
+                <li><a href="https://www.philips-hue.com/en-ca" target="_blank">Philips Hue Smart Lights</a></li>
+                <li><a href="https://august.com/products/august-wifi-smart-lock" target="_blank">August Wi‑Fi Smart Lock</a></li>
+            </ul>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Smart_home_thermostat.jpg/640px-Smart_home_thermostat.jpg">
         </div>
 
+        <!-- HOW IT WORKS -->
         <div class="section" id="how">
             <h2>How Does It Work?</h2>
-            <p>
-                IoT devices use sensors and wireless networks to collect data and send it to apps or cloud systems.
-            </p>
-            <div class="fact" onclick="revealFact()">
-                🔍 Tap to reveal a futuristic IoT fact
-            </div>
-            <div id="factText">
-                Some smart homes use AI to predict your routines—lights, temperature, and music adjust automatically.
-            </div>
+            <p>IoT devices use sensors and wireless networks to communicate.</p>
+
+            <h3>Devices That Use These Technologies</h3>
+            <ul>
+                <li><a href="https://www.samsung.com/us/smartthings/" target="_blank">Samsung SmartThings Hub</a></li>
+                <li><a href="https://www.ecobee.com/en-ca/smart-thermostats/" target="_blank">Ecobee Smart Thermostat</a></li>
+                <li><a href="https://www.tp-link.com/ca/home-networking/smart-plug/hs103/" target="_blank">Kasa Smart Plug</a></li>
+            </ul>
+
+            <div class="fact" onclick="revealFact()">🔍 Tap to reveal a futuristic IoT fact</div>
+            <div id="factText">Some smart homes use AI to predict your routines.</div>
         </div>
 
+        <!-- DASHBOARD -->
         <div class="section" id="dashboard">
             <h2>Smart Home Dashboard Simulator</h2>
-            <p>Try controlling your virtual smart home:</p>
 
             <div class="dashboard">
 
@@ -355,7 +315,7 @@
 
                 <div class="dash-item">
                     <div class="dash-label">Thermostat</div>
-                    <input type="range" min="15" max="30" value="22" class="slider" oninput="adjustTemp(this.value)">
+                    <input type="range" min="15" max="30" value="22" oninput="adjustTemp(this.value)">
                     <div class="status">Temperature: <span id="tempStatus">22°C</span></div>
                 </div>
 
@@ -364,23 +324,20 @@
                     <button onclick="toggleLock()">Toggle Lock</button>
                     <div class="status">Status: <span id="lockStatus">Locked</span></div>
                     <img id="lockImage"
-                         src="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/lock/materialicons/512dp/lock.png"
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Lock-green.svg/240px-Lock-green.svg.png"
                          style="width:120px; display:block; margin:10px auto;">
                 </div>
 
             </div>
         </div>
 
+        <!-- IMPACTS -->
         <div class="section" id="impacts">
             <h2>Social & Global Impacts</h2>
-            <p><b>Social:</b> More convenience and accessibility.</p>
-            <p><b>Cultural:</b> Homes feel more futuristic and automated.</p>
-            <p><b>Economic:</b> Creates new tech jobs.</p>
-            <p><b>Environmental:</b> Reduces energy waste.</p>
-            <p><b>Ethical:</b> Raises privacy concerns.</p>
-            <p><b>Global:</b> Expands automation worldwide.</p>
+            <p>IoT affects society, culture, economy, environment, ethics, and global tech adoption.</p>
         </div>
 
+        <!-- QUIZ -->
         <div class="section quiz" id="quiz">
             <h2>Quick IoT Quiz</h2>
             <label><input type="radio" name="q1" value="wrong"> Telepathy</label><br>
