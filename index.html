@@ -178,18 +178,18 @@
         function play(s) { s.currentTime = 0; s.play(); }
 
         function toggleDarkMode() {
-            play(clickSound);
+            play(toggleSound);
             document.body.classList.toggle("light-mode");
         }
 
         function revealFact() {
-            play(clickSound);
+            play(toggleSound);
             let fact = document.getElementById("factText");
             fact.style.display = fact.style.display === "none" ? "block" : "none";
         }
 
         function checkQuiz() {
-            play(clickSound);
+            play(toggleSound);
             let answer = document.querySelector('input[name="q1"]:checked');
             let result = document.getElementById("quizResult");
             if (!answer) { result.innerHTML = "Choose an answer first."; return; }
