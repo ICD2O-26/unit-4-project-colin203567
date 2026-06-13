@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Game Picker</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #1e1e1e;
+        color: #fff;
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+    }
+    h1 { text-align: center; }
+    input, button {
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: none;
+    }
+    input {
+        width: 70%;
+    }
+    button {
+        cursor: pointer;
+        background: #4CAF50;
+        color: white;
+    }
+    #gameList li {
+        margin: 5px 0;
+        padding: 8px;
+        background: #333;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .remove-btn {
+        background: red;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 1.4em;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<h1>🎮 Game Picker</h1>
+
+<input id="gameInput" type="text" placeholder="Enter game name">
+<button onclick="addGame()">Add Game</button>
+
+<h2>Your Games:</h2>
+<ul id="gameList"></ul>
+
+<button onclick="pickRandom()">Pick Random Game</button>
+
+<div id="result"></div>
+
+<script>
+    // Preloaded suggested games
+    let games = [
+        "Halo",
+        "World of Warcraft",
+        "Payday 2",
+        "Fortnite",
+        "Mario Kart",
+        "Hitman",
+        "Super Smash Bros"
+    ];
+
+    // Add game when pressing Enter
+    document.getElementById("gameInput").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            addGame();
+        }
+    });
+
+    function addGame() {
+        const input = document.getElementById("gameInput");
+        const game = input.value.trim();
+
+        if (game === "") return;
+
+        games.push(game);
+        input.value = "";
+        updateList();
+    }
+
+    function removeGame(index) {
+        games.splice(index, 1);
+        updateList();
+    }
+
+    function updateList() {
+        const list = document.getElementById("gameList");
+        list.innerHTML = "";
+
+        games.forEach((game, index) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                ${game}
+                <button class="remove-btn" onclick="removeGame(${index})">X</button>
+            `;
+            list.appendChild(li);
+        });
+    }
+
+    function pickRandom() {
+        if (games.length === 0) {
+            document.getElementById("result").innerText = "No games available!";
+            return;
+        }
+        const randomGame = games[Math.floor(Math.random() * games.length)];
+        document.getElementById("result").innerText = "You should play: " + randomGame;
+    }
+
+    // Initialize list on page load
+    updateList();
+</script>
+
+</body>
+</html>
